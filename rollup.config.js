@@ -4,7 +4,7 @@ import json from "@rollup/plugin-json";
 import resolve from "@rollup/plugin-node-resolve";
 
 export default {
-  input: "src/index.jsx",
+  input: "src/index.js",
   output: {
     file: "dist.js",
     format: "module",
