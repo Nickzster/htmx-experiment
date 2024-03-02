@@ -5,6 +5,7 @@ import ToDos from "../views/ToDos.jsx";
 import TodoPage from "../views/TodoPage.jsx";
 import { createPage, createHTMLSnippet } from "../lib/pageUtils.jsx";
 import { createTodoItem } from "../models/todos.js";
+import { counter } from "../lib/counter.js";
 
 const router = express.Router();
 
@@ -16,12 +17,13 @@ let todoItems = [
 
 router.post("/todo/add", (req, res) => {
   if (req.body.newItem) {
+    const newID = counter.getNextID();
     const newItemToPush = createTodoItem({
-      id: todoItems.length,
+      id: newID,
       item: req.body.newItem,
       isDone: false,
     });
-    console.log("Adding new item", newItemToPush);
+    //console.log("Adding new item", newItemToPush);
     todoItems.push(newItemToPush);
   }
   return res.status(200).send(createHTMLSnippet(<ToDos items={todoItems} />));
