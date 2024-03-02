@@ -6,7 +6,7 @@ import resolve from "@rollup/plugin-node-resolve";
 export default {
   input: "src/index.js",
   output: {
-    file: "dist.js",
+    file: "dist.mjs",
     format: "module",
   },
   plugins: [resolve(), json(), commonjs(), babel({ babelHelpers: "bundled" })],

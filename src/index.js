@@ -8,5 +8,5 @@ app.use(express.urlencoded({ extended: true }));
 app.use(HomeRouter);
 app.use(TodoRouter);
 
-const PORT = 50800;
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
